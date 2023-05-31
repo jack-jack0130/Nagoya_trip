@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block content %}
-  <h1>賓館資訊 Guesthouse Information</h1>
+  <h1 style="padding-left:30px;">旅行資訊</h1>
   <table style="width: 100%;  margin: 0 auto;">
     {% for post in posts %}
     <tr class="tableRow">
@@ -21,6 +21,7 @@
       border: 2px solid green;
       border-collapse: collapse;
       margin-top: 20px;
+      width: 100vw; /* Set the width to 100% of the viewport width */
     }
     a {
       text-decoration:none;

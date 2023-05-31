@@ -5,8 +5,8 @@ import os
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database01.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://syxwskkdhrleum:eee65fcc76485977633e78db6288242869b7fad6688a39324773849795a28005@ec2-3-234-204-26.compute-1.amazonaws.com:5432/d2meslrrdssfgt'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database01.db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://syxwskkdhrleum:eee65fcc76485977633e78db6288242869b7fad6688a39324773849795a28005@ec2-3-234-204-26.compute-1.amazonaws.com:5432/d2meslrrdssfgt'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 
@@ -15,7 +15,7 @@ db = SQLAlchemy(app)
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
-    description = db.Column(db.String(500), nullable=True)
+    description = db.Column(db.String(5000), nullable=True)
     image = db.Column(db.String(100), nullable=True)
 
 
@@ -23,6 +23,10 @@ class Post(db.Model):
     def __repr__(self):
         return '<Post %r>' % self.title
 
+@app.route('/itinerary')
+def itinerary():
+
+    return render_template('itinerary.html' )
 
 @app.route('/welcome')
 def welcome():

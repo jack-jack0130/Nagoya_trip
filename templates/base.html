@@ -4,12 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
-    <style>
+
+</head>
+<body>
+    <nav class="upper">
+        <ul>
+            <li><a href='{{ url_for('index')}}'>名古屋旅行</a></li>
+            <li><a href='{{ url_for('itinerary')}}'>行程</a></li>
+        </ul>
+    </nav>
+    <div class="middle">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!--
+    <footer class="lower">
+        <button>Click me!</button>
+    </footer>
+
+    -->
+</body>
+</html>
+
+<style>
         body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
             text-align: left;
+            width: 100vw; /* Set the width to 100% of the viewport width */
         }
         .upper {
             background-color: #eee;
@@ -33,7 +56,10 @@
         }
 
         .middle {
-            padding: 50px;
+            padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 0;
+    padding-right: 0
         }
         .lower {
             background-color: #eee;
@@ -49,22 +75,3 @@
             cursor: pointer;
         }
     </style>
-</head>
-<body>
-    <nav class="upper">
-        <ul>
-            <li><a href='{{ url_for('index')}}'>賓館資訊<br>Guesthouse<br>Information</a></li>
-        </ul>
-    </nav>
-    <div class="middle">
-        {% block content %}{% endblock %}
-    </div>
-
-    <!--
-    <footer class="lower">
-        <button>Click me!</button>
-    </footer>
-
-    -->
-</body>
-</html>

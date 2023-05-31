@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Travel Information</title>
+  <style>
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 600px) {
+      h1, h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>6.6.2023 HKG to Nagoya</h2>
+  <p>Stay: <a href="https://goo.gl/maps/tjWtgxM9uermfxNV6?coh=178572&entry=tt">Sanco Inn Grande Nagoya - HOTEL & SPA</a></p>
+  <img src="{{ url_for('static', filename='uploads/I01.jpg') }}" >
+
+  <h2>7.6.2023 Nagoya to Gero</h2>
+  <p>Stay: <a href="https://goo.gl/maps/8XsgByPCmTDaQtB3A?coh=178572&entry=tt">小川屋酒店</a></p>
+
+  <h2>8.6.2023 Gero</h2>
+  <p>Stay: <a href="https://goo.gl/maps/8XsgByPCmTDaQtB3A?coh=178572&entry=tt">小川屋酒店</a></p>
+
+  <h2>9.6.2023 Gero to Nagoya</h2>
+  <p>Stay: <a href="https://goo.gl/maps/86btWHNrcQSTE9618?coh=178572&entry=tt">Hotel Keihan Nagoya</a></p>
+
+  <h2>10.6.2023 Nagoya</h2>
+  <p>Stay: <a href="https://goo.gl/maps/86btWHNrcQSTE9618?coh=178572&entry=tt">Hotel Keihan Nagoya</a></p>
+
+  <h2>11.6.2023 Nagoya to HKG</h2>
+  <img src="{{ url_for('static', filename='uploads/I02.jpg') }}" >
+</body>
+</html>
+
+
+
+
+{% endblock %}
