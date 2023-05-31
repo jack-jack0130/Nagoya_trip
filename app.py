@@ -64,6 +64,8 @@ def login():
 
     return render_template('login.html')
 
+
+
 @app.route('/addpost', methods=['GET', 'POST'])
 def addpost():
     if request.method == 'POST':

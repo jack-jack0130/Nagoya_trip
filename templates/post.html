@@ -5,7 +5,6 @@
 
 {% block content %}
 
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -13,46 +12,49 @@
     <style>
       body {
         font-family: Arial, sans-serif;
-        width=100%;
+        width: 100%;
         margin: 0 auto;
       }
-
-      h1 {
-        font-size: 2rem;
-        margin-bottom: 20px;
-        text-align="left";
-      }
-      p {
-        font-size: 1.2rem;
-        line-height: 1.5;
-        margin-bottom: 20px;
-
-      }
-      img {
-        max-width: 100%;
-        height: auto;
-        margin-bottom: 20px;
-      }
-      video {
-        max-width: 100%;
-        height: auto;
-        margin-bottom: 20px;
-      }
-    </style>
-  </head>
+        h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  video {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+</style>
+ </head>
   <body>
     <h1>{{ post.title }}</h1>
-    <p>{{ post.description }}</p>
+    {% if post.description %}
+      {% if post.description|urlize == post.description %}
+        <p><a href="{{ post.description }}">{{ post.description }}</a></p>
+      {% else %}
+        <p>{{ post.description }}</p>
+      {% endif %}
+    {% endif %}
     {% if post.image %}
-    <img src="{{ url_for('static', filename='uploads/' + post.image) }}" alt="{{ post.title }}">
+      <img src="{{ url_for('static', filename='uploads/' + post.image) }}" alt="{{ post.title }}">
     {% endif %}
     {% if post.video %}
-    <video width="320" height="240" controls>
-      <source src="{{ url_for('static', filename='uploads/' + post.video) }}" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+      <video width="320" height="240" controls>
+        <source src="{{ url_for('static', filename='uploads/' + post.video) }}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     {% endif %}
   </body>
 </html>
-
 {% endblock %}
