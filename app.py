@@ -17,7 +17,7 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     description = db.Column(db.String(5000), nullable=True)
-    image = db.Column(db.String(100), nullable=True)
+    image = db.Column(db.String(1000), nullable=True)
 
 
 
@@ -28,6 +28,11 @@ class Post(db.Model):
 def itinerary():
 
     return render_template('itinerary.html' )
+
+@app.route('/weather')
+def weather():
+    website_url = 'https://www.accuweather.com/zh/jp/shinsakae/1508429/weather-forecast/1508429'
+    return render_template('weather.html', website_url=website_url )
 
 @app.route('/welcome')
 def welcome():
